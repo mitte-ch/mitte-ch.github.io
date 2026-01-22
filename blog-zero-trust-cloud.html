@@ -84,6 +84,7 @@
             <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
 
             <div class="article-content">
+                <div data-lang-content="en">
                 <h2>Why perimeter security breaks in cloud</h2>
                 <p>
                     Traditional security assumes a trusted internal network and an untrusted external network.
@@ -151,6 +152,78 @@
                         <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
                         <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
                     </div>
+                </div>
+                </div>
+
+                <div data-lang-content="es">
+                <h2>Por qué la seguridad perimetral se rompe en la nube</h2>
+                <p>
+                    La seguridad tradicional asume una red interna confiable y una red externa no confiable.
+                    En entornos cloud modernos—donde dominan identidades, APIs, SaaS y trabajo remoto—esos límites
+                    son porosos. Los atacantes no “hackean redes” primero; comprometen identidades, credenciales y tokens.
+                </p>
+
+                <h2>Los tres principios centrales de Zero Trust</h2>
+                <ul>
+                    <li><strong>Verificar explícitamente</strong>: autenticar y autorizar cada solicitud según identidad, contexto y riesgo.</li>
+                    <li><strong>Usar mínimo privilegio</strong>: conceder solo el acceso requerido y solo por el tiempo necesario.</li>
+                    <li><strong>Asumir brecha</strong>: diseñar para contención y detección rápida.</li>
+                </ul>
+
+                <h2>Cómo se ve Zero Trust en la práctica</h2>
+                <h3>La identidad como plano de control</h3>
+                <p>
+                    Aplica MFA, acceso condicional, controles de sesión robustos y auditoría centralizada.
+                    Prefiere acceso basado en roles con credenciales de corta duración en lugar de llaves de acceso de larga vida.
+                </p>
+
+                <h3>Microsegmentación y “deny by default”</h3>
+                <p>
+                    Restringe el tráfico este‑oeste para que un atacante no pueda moverse libremente tras un compromiso.
+                    En Kubernetes, eso suele implicar NetworkPolicies, separación por namespaces e ingress/egress controlado.
+                </p>
+
+                <h3>Verificación continua</h3>
+                <p>
+                    Las decisiones deben considerar más que “¿la contraseña es correcta?”. Incluye postura del dispositivo, ubicación,
+                    comportamiento anómalo e identidad de la carga de trabajo.
+                </p>
+
+                <h2>Un plan de implementación por fases</h2>
+                <ol>
+                    <li><strong>Inventariar</strong> identidades, aplicaciones críticas y flujos de datos.</li>
+                    <li><strong>Centralizar autenticación</strong> y exigir MFA + roles de mínimo privilegio.</li>
+                    <li><strong>Segmentar</strong> redes/cargas; eliminar caminos de confianza implícitos.</li>
+                    <li><strong>Instrumentar</strong> logging/telemetría; alertar por anomalías de identidad.</li>
+                    <li><strong>Automatizar</strong> políticas y controles de cumplimiento (policy-as-code).</li>
+                </ol>
+
+                <blockquote>
+                    Zero Trust no es un producto. Es un modelo operativo de seguridad:
+                    identidad primero, mínimo privilegio y verificación continua.
+                </blockquote>
+
+                <h2>Referencias y lecturas recomendadas</h2>
+                <ul>
+                    <li><a href="https://ict-pulse.com/2025/01/top-5-cloud-security-trends-for-2025/" target="_blank" rel="noopener noreferrer">ICT-Pulse: tendencias de seguridad cloud (visión general de Zero Trust)</a></li>
+                    <li><a href="https://www.clouddefense.ai/cloud-security-best-practices/" target="_blank" rel="noopener noreferrer">CloudDefense: mejores prácticas de seguridad cloud</a></li>
+                </ul>
+
+                <div class="article-tags">
+                    <span class="tag">Zero Trust</span>
+                    <span class="tag">Identidad</span>
+                    <span class="tag">Seguridad Cloud</span>
+                    <span class="tag">Cumplimiento</span>
+                </div>
+
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">🐦 Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -84,6 +84,7 @@
             <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
 
             <div class="article-content">
+                <div data-lang-content="en">
                 <h2>Why AI is now part of security operations</h2>
                 <p>
                     Cloud environments generate enormous volumes of telemetry: authentication events, API calls,
@@ -163,6 +164,90 @@
                         <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
                         <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
                     </div>
+                </div>
+                </div>
+
+                <div data-lang-content="es">
+                <h2>Por qué la IA ya es parte de las operaciones de seguridad</h2>
+                <p>
+                    Los entornos cloud generan volúmenes enormes de telemetría: eventos de autenticación, llamadas a APIs,
+                    flujos de red, señales de contenedor/runtime y logs de aplicaciones. El análisis solo humano no escala.
+                    La IA/ML ayuda a los equipos de seguridad a detectar patrones, correlacionar señales y responder más rápido.
+                </p>
+
+                <h2>Casos de uso de alto impacto</h2>
+                <h3>Detección de anomalías en identidades y APIs</h3>
+                <p>
+                    Los modelos de ML pueden señalar patrones de login inusuales, uso sospechoso de tokens o secuencias anómalas de llamadas a APIs—
+                    especialmente útil cuando los atacantes usan credenciales válidas.
+                </p>
+
+                <h3>Analítica de comportamiento (UEBA)</h3>
+                <p>
+                    La analítica de comportamiento de usuarios y entidades construye líneas base de “normalidad” y destaca desviaciones:
+                    escalada de privilegios, movimiento lateral o acceso inesperado a datos.
+                </p>
+
+                <h3>Triage automatizado y respuesta a incidentes</h3>
+                <p>
+                    Los playbooks asistidos por IA pueden reducir la fatiga de alertas agrupando alertas relacionadas, enriqueciendo contexto y
+                    recomendando acciones de respuesta. Bien implementado, esto convierte “miles de alertas” en “unos pocos incidentes reales”.
+                </p>
+
+                <h2>Las partes difíciles (y cómo ser realistas)</h2>
+                <h3>Falsos positivos y deriva del modelo</h3>
+                <p>
+                    Los sistemas cloud cambian constantemente. Los modelos deben monitorearse, reentrenarse y evaluarse para evitar la deriva.
+                    Empieza con casos de uso acotados y métricas claras de éxito.
+                </p>
+
+                <h3>ML adversarial</h3>
+                <p>
+                    Los atacantes pueden intentar evadir detecciones o envenenar datos. Mitiga separando pipelines de entrenamiento,
+                    validando fuentes de datos y manteniendo a humanos en el loop para acciones de alto impacto.
+                </p>
+
+                <h3>Privacidad y gobernanza</h3>
+                <p>
+                    La telemetría de seguridad puede incluir información sensible. Aplica minimización de datos, controles de retención
+                    y políticas claras de acceso—especialmente en entornos regulados.
+                </p>
+
+                <h2>Un enfoque práctico de implementación</h2>
+                <ol>
+                    <li><strong>Definir el resultado</strong>: p. ej., detectar “impossible travel”, abuso de API keys o patrones de exfiltración.</li>
+                    <li><strong>Instrumentar</strong>: asegurar logs de calidad y esquemas consistentes.</li>
+                    <li><strong>Establecer una línea base</strong>: comenzar con detecciones por reglas y luego sumar ML para mejorar precisión.</li>
+                    <li><strong>Humano en el loop</strong>: requerir confirmación para acciones destructivas.</li>
+                    <li><strong>Medir</strong>: seguir precisión, recall, time-to-detect (TTD) y time-to-respond (TTR).</li>
+                </ol>
+
+                <blockquote>
+                    La IA no reemplaza la ingeniería de seguridad—la amplifica. Los mejores resultados se logran combinando detecciones de ML
+                    con controles de identidad sólidos y playbooks claros de respuesta a incidentes.
+                </blockquote>
+
+                <h2>Referencias y lecturas recomendadas</h2>
+                <ul>
+                    <li><a href="https://www.cloudpanel.io/blog/cloud-security-trends/" target="_blank" rel="noopener noreferrer">CloudPanel: tendencias de seguridad cloud (IA/ML en seguridad)</a></li>
+                    <li><a href="https://www.webasha.com/blog/top-5-cloud-security-trends-in-2025-to-watch-out-for/" target="_blank" rel="noopener noreferrer">WebAsha: tendencias de seguridad cloud (contexto IA/automatización)</a></li>
+                </ul>
+
+                <div class="article-tags">
+                    <span class="tag">IA</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Seguridad Cloud</span>
+                    <span class="tag">Detección</span>
+                </div>
+
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">🐦 Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

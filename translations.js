@@ -387,6 +387,12 @@ function changeLanguage(lang) {
         });
         element.innerHTML = value;
     });
+
+    // Toggle full content blocks (used for long-form blog articles)
+    document.querySelectorAll('[data-lang-content]').forEach(element => {
+        const contentLang = element.getAttribute('data-lang-content');
+        element.style.display = contentLang === lang ? '' : 'none';
+    });
     
     // Update placeholders
     const namePlaceholder = document.getElementById('name');

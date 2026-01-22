@@ -84,6 +84,7 @@
             <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
 
             <div class="article-content">
+                <div data-lang-content="en">
                 <h2>DevSecOps in one sentence</h2>
                 <p>
                     DevSecOps is the practice of integrating security into delivery workflows so teams ship faster
@@ -183,6 +184,110 @@ security:
                         <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
                         <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
                     </div>
+                </div>
+                </div>
+
+                <div data-lang-content="es">
+                <h2>DevSecOps en una frase</h2>
+                <p>
+                    DevSecOps es la práctica de integrar la seguridad en los flujos de entrega para que los equipos publiquen más rápido
+                    <em>sin</em> aumentar el riesgo—usando automatización, políticas claras y valores seguros por defecto.
+                </p>
+
+                <h2>Por qué “shift-left” no es suficiente</h2>
+                <p>
+                    “Shift-left” (ejecutar scanners temprano) ayuda, pero DevSecOps va más allá: convierte la seguridad en un
+                    <strong>sistema continuo</strong>—desde el código fuente a la infraestructura y el runtime.
+                </p>
+
+                <h2>Los controles de CI/CD que más importan</h2>
+                <h3>1) Proteger el propio pipeline</h3>
+                <ul>
+                    <li>Identidad fuerte (SSO/MFA) y permisos basados en roles para runners de CI y deploy keys.</li>
+                    <li>Separar permisos de build y de deploy (mínimo privilegio).</li>
+                    <li>Revisar y rotar tokens/secretos con frecuencia.</li>
+                </ul>
+
+                <h3>2) Automatizar checks de código y dependencias</h3>
+                <ul>
+                    <li><strong>SAST</strong>: detectar patrones de riesgo en el código de la aplicación.</li>
+                    <li><strong>SCA</strong>: identificar dependencias open-source vulnerables y riesgos de licencias.</li>
+                    <li><strong>Escaneo de secretos</strong>: evitar commitear claves, tokens y credenciales.</li>
+                </ul>
+
+                <h3>3) Escanear infraestructura como código</h3>
+                <p>
+                    Los recursos cloud mal configurados siguen siendo una causa principal de incidentes. Añade escaneo de IaC para Terraform,
+                    CloudFormation, manifiestos de Kubernetes y configuraciones de contenedores.
+                </p>
+
+                <h3>4) Higiene de contenedores y artefactos</h3>
+                <ul>
+                    <li>Fijar versiones de imágenes base y actualizarlas regularmente.</li>
+                    <li>Escanear imágenes por CVEs y aplicar un gate de “sin vulnerabilidades críticas”.</li>
+                    <li>Firmar artefactos (y verificar firmas en el paso de deploy).</li>
+                </ul>
+
+                <h3>5) Controles en runtime y observabilidad</h3>
+                <p>
+                    CI/CD es solo la mitad de la historia. Añade monitoreo en runtime (logs/métricas/trazas) y cloud security posture management
+                    para detectar drift y comportamiento anómalo.
+                </p>
+
+                <h2>Un ejemplo mínimo de pipeline (conceptual)</h2>
+                <pre><code># Pseudo pasos de CI (agnóstico a herramientas)
+stages:
+  - lint
+  - test
+  - security
+  - build
+  - deploy
+
+security:
+  steps:
+    - run: sast_scan
+    - run: dependency_scan
+    - run: secrets_scan
+    - run: iac_scan
+    - run: container_scan
+  rules:
+    - fail_on: critical_vulns
+    - fail_on: exposed_secrets</code></pre>
+
+                <h2>Fallos comunes (y cómo evitarlos)</h2>
+                <ul>
+                    <li><strong>Demasiados falsos positivos</strong>: ajustar reglas y empezar por checks de alta señal.</li>
+                    <li><strong>Gates de seguridad que bloquean la entrega</strong>: aplicar enforcement gradual (avisar → fallar) y priorizar riesgos críticos.</li>
+                    <li><strong>Seguridad como equipo separado</strong>: incorporar ownership de seguridad en los equipos de ingeniería con playbooks claros.</li>
+                    <li><strong>Sin bucle de feedback</strong>: medir tiempo de remediación, recurrencia y reducción de superficie de ataque.</li>
+                </ul>
+
+                <blockquote>
+                    El mejor programa DevSecOps no es el que tiene más herramientas—es el que produce
+                    releases seguras y predecibles con fricción mínima.
+                </blockquote>
+
+                <h2>Referencias y lecturas recomendadas</h2>
+                <ul>
+                    <li><a href="https://blazeclan.com/blog/7-critical-cloud-security-trends-reshaping-enterprise-protection-in-2025/" target="_blank" rel="noopener noreferrer">Blazeclan: tendencias de seguridad cloud (contexto para DevSecOps)</a></li>
+                    <li><a href="https://www.clouddefense.ai/cloud-security-best-practices/" target="_blank" rel="noopener noreferrer">CloudDefense: mejores prácticas de seguridad cloud</a></li>
+                </ul>
+
+                <div class="article-tags">
+                    <span class="tag">DevSecOps</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Seguridad</span>
+                    <span class="tag">Automatización</span>
+                </div>
+
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">🐦 Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>

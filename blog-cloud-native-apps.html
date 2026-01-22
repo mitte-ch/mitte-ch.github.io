@@ -84,6 +84,7 @@
             <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
 
             <div class="article-content">
+                <div data-lang-content="en">
                 <h2>What “cloud-native” actually means</h2>
                 <p>
                     Cloud-native is less about a specific product and more about a set of design and operating principles.
@@ -176,6 +177,103 @@ resources:
                         <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
                         <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
                     </div>
+                </div>
+                </div>
+
+                <div data-lang-content="es">
+                <h2>Qué significa realmente “cloud-native”</h2>
+                <p>
+                    Cloud-native se trata menos de un producto específico y más de un conjunto de principios de diseño y operación.
+                    Normalmente incluye contenedores, microservicios (o servicios modulares), configuración declarativa y operaciones
+                    orientadas a la automatización. El objetivo es desplegar cambios con seguridad, escalar bajo demanda y recuperarse rápido.
+                </p>
+
+                <h2>Por qué las organizaciones se alejan de los monolitos</h2>
+                <ul>
+                    <li><strong>Escalado independiente</strong>: escalar el “hot path” sin escalar todo.</li>
+                    <li><strong>Entrega más rápida</strong>: despliegues más pequeños reducen el riesgo y el ciclo de entrega.</li>
+                    <li><strong>Resiliencia</strong>: aislar fallos y degradar de forma controlada.</li>
+                    <li><strong>Ventaja operativa</strong>: la automatización reemplaza runbooks manuales.</li>
+                </ul>
+
+                <h2>Los bloques de una plataforma cloud-native</h2>
+                <h3>Contenedores</h3>
+                <p>
+                    Los contenedores aportan un runtime consistente para aplicaciones entre entornos. Reducen los problemas de “en mi máquina funciona”
+                    y habilitan estandarización en build y despliegue.
+                </p>
+
+                <h3>Kubernetes y orquestación</h3>
+                <p>
+                    Kubernetes ofrece scheduling, service discovery, despliegues progresivos, autoscaling y patrones de self-healing.
+                    También es una base para platform engineering: los equipos pueden estandarizar cómo se despliegan y operan las aplicaciones.
+                </p>
+
+                <h3>CI/CD + policy-as-code</h3>
+                <p>
+                    Cloud-native sin entrega automatizada se vuelve frágil. CI/CD más policy-as-code hace cumplir las reglas importantes:
+                    checks de seguridad, aprobaciones requeridas, promoción entre entornos y procesos de release consistentes.
+                </p>
+
+                <h3>Observabilidad desde el día uno</h3>
+                <p>
+                    Los sistemas distribuidos requieren visibilidad. Invierte temprano en logs, métricas y trazas, con naming estándar y
+                    correlation IDs para depurar más rápido.
+                </p>
+
+                <h2>Principios de diseño para evitar problemas</h2>
+                <ul>
+                    <li><strong>Servicios stateless cuando sea posible</strong> y estado aislado detrás de data stores gestionados.</li>
+                    <li><strong>APIs claras</strong> con versionado, timeouts, reintentos y circuit breakers.</li>
+                    <li><strong>Configuración segura por defecto</strong>: mínimo privilegio, gestión de secretos, cifrado en tránsito.</li>
+                    <li><strong>Automatizar todo</strong>: infraestructura, despliegues y acciones de recuperación.</li>
+                </ul>
+
+                <h2>Ejemplo: esenciales de un deployment en Kubernetes</h2>
+                <p>Como mínimo, la mayoría de cargas de producción necesitan:</p>
+                <ul>
+                    <li><strong>Deployment</strong> (o StatefulSet) para gestionar el rollout</li>
+                    <li><strong>Service</strong> para networking estable</li>
+                    <li><strong>Ingress</strong> (o Gateway) para ruteo externo</li>
+                    <li><strong>HPA</strong> para autoscaling</li>
+                    <li><strong>NetworkPolicy</strong> para segmentación</li>
+                </ul>
+
+                <pre><code># Ejemplo: requests/limits de recursos (control operativo de alta señal)
+resources:
+  requests:
+    cpu: "250m"
+    memory: "256Mi"
+  limits:
+    cpu: "1000m"
+    memory: "1024Mi"</code></pre>
+
+                <blockquote>
+                    Cloud-native tiene éxito cuando los equipos despliegan con frecuencia, se recuperan rápido y entienden sus sistemas.
+                    Si solo estás “containerizado”, todavía no terminaste el viaje.
+                </blockquote>
+
+                <h2>Referencias y lecturas recomendadas</h2>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/Cloud-native_computing" target="_blank" rel="noopener noreferrer">Wikipedia: cloud-native computing (visión general)</a></li>
+                    <li><a href="https://technologymagazine.com/top10/top-10-trends-in-cloud-computing" target="_blank" rel="noopener noreferrer">Technology Magazine: tendencias cloud (cloud-native y contenedores)</a></li>
+                </ul>
+
+                <div class="article-tags">
+                    <span class="tag">Cloud Nativo</span>
+                    <span class="tag">Kubernetes</span>
+                    <span class="tag">Microservicios</span>
+                    <span class="tag">Observabilidad</span>
+                </div>
+
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">🐦 Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
