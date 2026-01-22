@@ -75,29 +75,75 @@ if (languageBtn && languageMenu) {
     });
 }
 
-// Form submission
+// Form submission with EmailJS
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Here you would typically send the form data to a server
-        console.log('Form submitted:', { name, email, subject, message });
-        
-        // Show success message
         const currentLang = localStorage.getItem('preferredLanguage') || 'en';
-        const successMsg = translations[currentLang].contact.successMessage;
-        alert(successMsg);
         
-        // Reset form
-        contactForm.reset();
+        // Check if EmailJS is configured
+        if (typeof EMAILJS_CONFIG === 'undefined' || 
+            EMAILJS_CONFIG.PUBLIC_KEY === 'YOUR_PUBLIC_KEY' ||
+            EMAILJS_CONFIG.SERVICE_ID === 'YOUR_SERVICE_ID' ||
+            EMAILJS_CONFIG.TEMPLATE_ID === 'YOUR_TEMPLATE_ID') {
+            showFormStatus('error', translations[currentLang].contact.configError || 'EmailJS not configured. Please set up your credentials.');
+            return;
+        }
+        
+        // Get form values
+        const templateParams = {
+            from_name: document.getElementById('name').value,
+            from_email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        submitBtn.textContent = translations[currentLang].contact.sending || 'Sending...';
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+        
+        try {
+            // Send email via EmailJS
+            await emailjs.send(
+                EMAILJS_CONFIG.SERVICE_ID,
+                EMAILJS_CONFIG.TEMPLATE_ID,
+                templateParams
+            );
+            
+            // Success
+            showFormStatus('success', translations[currentLang].contact.successMessage);
+            contactForm.reset();
+            
+        } catch (error) {
+            // Error
+            console.error('EmailJS Error:', error);
+            showFormStatus('error', translations[currentLang].contact.errorMessage || 'Failed to send message. Please try again.');
+        } finally {
+            // Reset button
+            submitBtn.disabled = false;
+            submitBtn.textContent = translations[currentLang].contact.sendButton;
+        }
     });
+    
+    function showFormStatus(type, message) {
+        formStatus.className = `form-status ${type}`;
+        formStatus.textContent = message;
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+            setTimeout(() => {
+                formStatus.className = 'form-status';
+                formStatus.textContent = '';
+            }, 5000);
+        }
+    }
 }
 
 // Intersection Observer for animations

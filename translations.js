@@ -126,7 +126,10 @@ const translations = {
             subjectPlaceholder: "Subject",
             messagePlaceholder: "Your Message",
             sendButton: "SEND MESSAGE",
-            successMessage: "Thank you for your message! We will get back to you soon."
+            sending: "Sending...",
+            successMessage: "Thank you for your message! We will get back to you soon.",
+            errorMessage: "Failed to send message. Please try again.",
+            configError: "Email service not configured. Please contact us directly."
         },
         // Tools Section
         tools: {
@@ -334,7 +337,10 @@ const translations = {
             subjectPlaceholder: "Asunto",
             messagePlaceholder: "Tu Mensaje",
             sendButton: "ENVIAR MENSAJE",
-            successMessage: "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+            sending: "Enviando...",
+            successMessage: "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.",
+            errorMessage: "Error al enviar el mensaje. Por favor, inténtalo de nuevo.",
+            configError: "Servicio de correo no configurado. Por favor, contáctanos directamente."
         },
         // Sección Herramientas
         tools: {
