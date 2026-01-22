@@ -147,7 +147,43 @@ const translations = {
             relatedArticles: "Related Articles",
             authorBy: "By",
             publishedOn: "Published on",
-            tags: "Tags"
+            tags: "Tags",
+            topicCloud: "Cloud Architecture",
+            topicDevops: "DevOps",
+            topicSecurity: "Security",
+            topicKubernetes: "Kubernetes",
+            topicAI: "AI & ML",
+            topicCloudNative: "Cloud Native",
+            topicFinOps: "FinOps",
+            posts: {
+                hybridMultiCloud: {
+                    title: "Hybrid & Multi-Cloud Strategies: Changing Business Infrastructure",
+                    excerptLong: "Over 70% of organizations now adopt hybrid and multi-cloud architectures. Learn how these strategies reduce vendor lock-in, improve resilience, meet compliance requirements, and provide the flexibility needed for modern business operations.",
+                    excerptShort: "Over 70% of organizations now adopt hybrid and multi-cloud architectures. Learn how these strategies reduce vendor lock-in and improve resilience."
+                },
+                devsecopsCicd: {
+                    title: "Integrating DevSecOps: Building Security Into Your CI/CD Pipeline",
+                    excerptLong: "Discover how to embed security throughout your development lifecycle with DevSecOps practices including policy-as-code, automated testing, secrets management, and early risk detection in your CI/CD pipelines.",
+                    excerptShort: "Embed security throughout your development lifecycle with policy-as-code, automated testing, and secrets management."
+                },
+                cloudNativeApps: {
+                    title: "Building Cloud-Native Applications: The Future of Scalable Deployments",
+                    excerptLong: "Cloud-native architecture using microservices, containers, and Kubernetes is replacing monolithic designs. Learn how to build scalable, resilient systems with decoupled services, observability, and security built into every component.",
+                    excerptShort: "Cloud-native architecture using microservices, containers, and Kubernetes is replacing monolithic designs for scalable systems."
+                },
+                zeroTrustCloud: {
+                    title: "Zero Trust in the Cloud: Moving Beyond Perimeter Security",
+                    excerptLong: "Traditional perimeter-based security is no longer sufficient. Explore zero trust architecture principles including micro-segmentation, continuous verification, identity hardening, and removing legacy trust assumptions in cloud environments."
+                },
+                aiMlCloudSecurity: {
+                    title: "How AI & Machine Learning Are Redefining Cloud Security",
+                    excerptLong: "AI and ML are transforming cloud security through anomaly detection, automated incident response, and threat intelligence. Learn about real-world applications, benefits, and challenges including bias and adversarial ML attacks."
+                },
+                finopsCloudCost: {
+                    title: "Understanding FinOps: Better Financial Operations for Cloud Cost Management",
+                    excerptLong: "With 20-30% of cloud spending wasted, FinOps is essential for cost visibility and optimization. Learn about rightsizing, chargebacks, budget allocation, and automation strategies to reduce waste and improve ROI."
+                }
+            }
         }
     },
     es: {
@@ -297,7 +333,43 @@ const translations = {
             relatedArticles: "Artículos Relacionados",
             authorBy: "Por",
             publishedOn: "Publicado el",
-            tags: "Etiquetas"
+            tags: "Etiquetas",
+            topicCloud: "Arquitectura Cloud",
+            topicDevops: "DevOps",
+            topicSecurity: "Seguridad",
+            topicKubernetes: "Kubernetes",
+            topicAI: "IA y ML",
+            topicCloudNative: "Cloud Nativo",
+            topicFinOps: "FinOps",
+            posts: {
+                hybridMultiCloud: {
+                    title: "Estrategias híbridas y multicloud: transformando la infraestructura empresarial",
+                    excerptLong: "Más del 70% de las organizaciones ya adoptan arquitecturas híbridas y multicloud. Descubre cómo estas estrategias reducen el lock-in de proveedor, mejoran la resiliencia, cumplen requisitos de cumplimiento y aportan la flexibilidad necesaria para las operaciones modernas.",
+                    excerptShort: "Más del 70% de las organizaciones ya adoptan arquitecturas híbridas y multicloud. Descubre cómo estas estrategias reducen el lock-in de proveedor y mejoran la resiliencia."
+                },
+                devsecopsCicd: {
+                    title: "Integrando DevSecOps: incorporando la seguridad en tu pipeline CI/CD",
+                    excerptLong: "Descubre cómo integrar la seguridad en todo el ciclo de vida de desarrollo con prácticas DevSecOps, incluyendo policy-as-code, pruebas automatizadas, gestión de secretos y detección temprana de riesgos en tus pipelines CI/CD.",
+                    excerptShort: "Integra seguridad en todo el ciclo de vida con policy-as-code, pruebas automatizadas y gestión de secretos."
+                },
+                cloudNativeApps: {
+                    title: "Construyendo aplicaciones cloud-native: el futuro de los despliegues escalables",
+                    excerptLong: "La arquitectura cloud-native con microservicios, contenedores y Kubernetes está reemplazando diseños monolíticos. Aprende a construir sistemas escalables y resilientes con servicios desacoplados, observabilidad y seguridad integrada en cada componente.",
+                    excerptShort: "La arquitectura cloud-native con microservicios, contenedores y Kubernetes está reemplazando monolitos para sistemas escalables."
+                },
+                zeroTrustCloud: {
+                    title: "Zero Trust en la nube: más allá de la seguridad perimetral",
+                    excerptLong: "La seguridad perimetral tradicional ya no es suficiente. Explora los principios de Zero Trust, incluyendo microsegmentación, verificación continua, endurecimiento de identidad y eliminación de supuestos de confianza heredados en entornos cloud."
+                },
+                aiMlCloudSecurity: {
+                    title: "Cómo la IA y el machine learning están redefiniendo la seguridad en la nube",
+                    excerptLong: "La IA y el ML están transformando la seguridad cloud mediante detección de anomalías, respuesta automatizada a incidentes e inteligencia de amenazas. Conoce aplicaciones reales, beneficios y desafíos como sesgo y ataques de ML adversarial."
+                },
+                finopsCloudCost: {
+                    title: "Entendiendo FinOps: mejores operaciones financieras para la gestión de costes cloud",
+                    excerptLong: "Con un 20–30% del gasto cloud desperdiciado, FinOps es esencial para visibilidad y optimización de costes. Aprende sobre rightsizing, chargebacks, asignación de presupuestos y estrategias de automatización para reducir el desperdicio y mejorar el ROI."
+                }
+            }
         }
     }
 };
