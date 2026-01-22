@@ -2,19 +2,21 @@
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const navLinks = document.getElementById('navLinks');
 
-mobileMenuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    mobileMenuToggle.classList.toggle('active');
-});
-
-// Close mobile menu when clicking on a link
-const menuLinks = document.querySelectorAll('.nav-links a');
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        mobileMenuToggle.classList.remove('active');
+if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
     });
-});
+
+    // Close mobile menu when clicking on a link
+    const menuLinks = document.querySelectorAll('.nav-links a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        });
+    });
+}
 
 // Navbar scroll effect
 const navbar = document.getElementById('navbar');
@@ -51,48 +53,52 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 const languageBtn = document.getElementById('languageBtn');
 const languageMenu = document.getElementById('languageMenu');
 
-languageBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    languageMenu.classList.toggle('active');
-});
+if (languageBtn && languageMenu) {
+    languageBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        languageMenu.classList.toggle('active');
+    });
 
-// Close language menu when clicking outside
-document.addEventListener('click', () => {
-    languageMenu.classList.remove('active');
-});
-
-// Language selection
-languageMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const lang = e.target.getAttribute('data-lang');
-        changeLanguage(lang);
+    // Close language menu when clicking outside
+    document.addEventListener('click', () => {
         languageMenu.classList.remove('active');
     });
-});
+
+    // Language selection
+    languageMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = e.target.getAttribute('data-lang');
+            changeLanguage(lang);
+            languageMenu.classList.remove('active');
+        });
+    });
+}
 
 // Form submission
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Here you would typically send the form data to a server
-    console.log('Form submitted:', { name, email, subject, message });
-    
-    // Show success message
-    const currentLang = localStorage.getItem('preferredLanguage') || 'en';
-    const successMsg = translations[currentLang].contact.successMessage;
-    alert(successMsg);
-    
-    // Reset form
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Here you would typically send the form data to a server
+        console.log('Form submitted:', { name, email, subject, message });
+        
+        // Show success message
+        const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+        const successMsg = translations[currentLang].contact.successMessage;
+        alert(successMsg);
+        
+        // Reset form
+        contactForm.reset();
+    });
+}
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -126,3 +132,41 @@ window.addEventListener('scroll', () => {
         heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
+
+// Dark Mode Toggle - Initialize immediately for instant theme application
+(function() {
+    const html = document.documentElement;
+    
+    // Apply saved theme immediately (before page renders)
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+    html.setAttribute('data-theme', theme);
+    
+    // Wait for DOM to be ready for button interaction
+    document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.querySelector('.theme-icon');
+        
+        // Update icon based on current theme
+        if (themeIcon) {
+            const currentTheme = html.getAttribute('data-theme');
+            themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        // Add click handler
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                if (themeIcon) {
+                    themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                }
+            });
+        }
+    });
+})();
