@@ -1065,6 +1065,250 @@ body {
     }
 }
 
+/* Tools Section */
+.tools-section {
+    padding: 100px 20px;
+    background: var(--bg-light);
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tool-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px var(--shadow);
+}
+
+.tool-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tool-icon {
+    font-size: 2.5rem;
+}
+
+.tool-header h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.tool-description {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Password Generator */
+.password-generator {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.password-display {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.password-display input {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+.password-display input::placeholder {
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    letter-spacing: normal;
+}
+
+.copy-btn {
+    padding: 1rem;
+    font-size: 1.2rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    transform: scale(1.05);
+    background: var(--secondary-color);
+}
+
+.copy-btn.copied {
+    background: #28a745;
+}
+
+.password-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.option-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.option-row label {
+    min-width: 60px;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.option-row input[type="range"] {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--bg-light);
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.option-row span {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.option-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.password-strength {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.password-strength > span:first-child {
+    color: var(--text-light);
+}
+
+.strength-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-light);
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.strength-fill.weak {
+    width: 25%;
+    background: #dc3545;
+}
+
+.strength-fill.medium {
+    width: 50%;
+    background: #ffc107;
+}
+
+.strength-fill.strong {
+    width: 75%;
+    background: #28a745;
+}
+
+.strength-fill.very-strong {
+    width: 100%;
+    background: #20c997;
+}
+
+#strengthText {
+    font-weight: 600;
+    min-width: 80px;
+}
+
+#strengthText.weak { color: #dc3545; }
+#strengthText.medium { color: #ffc107; }
+#strengthText.strong { color: #28a745; }
+#strengthText.very-strong { color: #20c997; }
+
+.generate-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.generate-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+@media (max-width: 768px) {
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .option-checkboxes {
+        grid-template-columns: 1fr;
+    }
+    
+    .password-strength {
+        flex-wrap: wrap;
+    }
+}
+
 /* Blog Preview Section (Homepage) */
 .blog-preview-section {
     padding: 100px 20px;

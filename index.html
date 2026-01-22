@@ -56,6 +56,7 @@
                     </li>
                     <li><a href="#tech" data-i18n="nav.tech">TECH</a></li>
                     <li><a href="#about" data-i18n="nav.about">ABOUT</a></li>
+                    <li><a href="#tools" data-i18n="nav.tools">TOOLS</a></li>
                     <li><a href="#contact" data-i18n="nav.contact">CONTACT</a></li>
                     <li><a href="blogs/blog.html" data-i18n="nav.blog">BLOG</a></li>
                     <li class="theme-switcher">
@@ -392,6 +393,71 @@
                     <div class="stat-card">
                         <div class="stat-number">24/7</div>
                         <div class="stat-label" data-i18n="about.stat4">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section" id="tools">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 data-i18n="tools.title">Free Tools</h2>
+                <p data-i18n="tools.subtitle">Useful utilities for developers and IT professionals</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- Password Generator -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <span class="tool-icon">🔐</span>
+                        <h3 data-i18n="tools.passwordGenerator.title">Password Generator</h3>
+                    </div>
+                    <p class="tool-description" data-i18n="tools.passwordGenerator.description">Generate strong, secure passwords with customizable options</p>
+                    
+                    <div class="password-generator">
+                        <div class="password-display">
+                            <input type="text" id="generatedPassword" readonly placeholder="Click Generate">
+                            <button class="copy-btn" id="copyPassword" title="Copy to clipboard">📋</button>
+                        </div>
+                        
+                        <div class="password-options">
+                            <div class="option-row">
+                                <label for="passwordLength" data-i18n="tools.passwordGenerator.length">Length:</label>
+                                <input type="range" id="passwordLength" min="8" max="64" value="16">
+                                <span id="lengthValue">16</span>
+                            </div>
+                            
+                            <div class="option-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeUppercase" checked>
+                                    <span data-i18n="tools.passwordGenerator.uppercase">Uppercase (A-Z)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeLowercase" checked>
+                                    <span data-i18n="tools.passwordGenerator.lowercase">Lowercase (a-z)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeNumbers" checked>
+                                    <span data-i18n="tools.passwordGenerator.numbers">Numbers (0-9)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeSymbols" checked>
+                                    <span data-i18n="tools.passwordGenerator.symbols">Symbols (!@#$%)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="password-strength">
+                            <span data-i18n="tools.passwordGenerator.strength">Strength:</span>
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span id="strengthText" data-i18n="tools.passwordGenerator.medium">Medium</span>
+                        </div>
+                        
+                        <button class="generate-btn" id="generatePassword" data-i18n="tools.passwordGenerator.generate">Generate Password</button>
                     </div>
                 </div>
             </div>

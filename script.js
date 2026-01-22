@@ -170,3 +170,128 @@ window.addEventListener('scroll', () => {
         }
     });
 })();
+
+// Password Generator
+(function() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const generateBtn = document.getElementById('generatePassword');
+        const passwordInput = document.getElementById('generatedPassword');
+        const copyBtn = document.getElementById('copyPassword');
+        const lengthSlider = document.getElementById('passwordLength');
+        const lengthValue = document.getElementById('lengthValue');
+        const strengthFill = document.getElementById('strengthFill');
+        const strengthText = document.getElementById('strengthText');
+        
+        const includeUppercase = document.getElementById('includeUppercase');
+        const includeLowercase = document.getElementById('includeLowercase');
+        const includeNumbers = document.getElementById('includeNumbers');
+        const includeSymbols = document.getElementById('includeSymbols');
+        
+        if (!generateBtn) return; // Exit if not on a page with password generator
+        
+        const charsets = {
+            uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            lowercase: 'abcdefghijklmnopqrstuvwxyz',
+            numbers: '0123456789',
+            symbols: '!@#$%^&*()_+-=[]{}|;:,.<>?'
+        };
+        
+        // Update length display
+        lengthSlider.addEventListener('input', () => {
+            lengthValue.textContent = lengthSlider.value;
+        });
+        
+        // Generate password
+        function generatePassword() {
+            let charset = '';
+            if (includeUppercase.checked) charset += charsets.uppercase;
+            if (includeLowercase.checked) charset += charsets.lowercase;
+            if (includeNumbers.checked) charset += charsets.numbers;
+            if (includeSymbols.checked) charset += charsets.symbols;
+            
+            if (charset === '') {
+                passwordInput.value = 'Select at least one option';
+                updateStrength(0);
+                return;
+            }
+            
+            const length = parseInt(lengthSlider.value);
+            let password = '';
+            
+            // Use crypto API for better randomness
+            const array = new Uint32Array(length);
+            window.crypto.getRandomValues(array);
+            
+            for (let i = 0; i < length; i++) {
+                password += charset[array[i] % charset.length];
+            }
+            
+            passwordInput.value = password;
+            updateStrength(calculateStrength(password, charset));
+        }
+        
+        // Calculate password strength
+        function calculateStrength(password, charset) {
+            let score = 0;
+            const length = password.length;
+            
+            // Length score
+            if (length >= 8) score += 1;
+            if (length >= 12) score += 1;
+            if (length >= 16) score += 1;
+            if (length >= 24) score += 1;
+            
+            // Charset diversity score
+            if (includeUppercase.checked) score += 1;
+            if (includeLowercase.checked) score += 1;
+            if (includeNumbers.checked) score += 1;
+            if (includeSymbols.checked) score += 1;
+            
+            return Math.min(score, 8);
+        }
+        
+        // Update strength indicator
+        function updateStrength(score) {
+            strengthFill.className = 'strength-fill';
+            strengthText.className = '';
+            
+            if (score <= 2) {
+                strengthFill.classList.add('weak');
+                strengthText.classList.add('weak');
+                strengthText.textContent = 'Weak';
+            } else if (score <= 4) {
+                strengthFill.classList.add('medium');
+                strengthText.classList.add('medium');
+                strengthText.textContent = 'Medium';
+            } else if (score <= 6) {
+                strengthFill.classList.add('strong');
+                strengthText.classList.add('strong');
+                strengthText.textContent = 'Strong';
+            } else {
+                strengthFill.classList.add('very-strong');
+                strengthText.classList.add('very-strong');
+                strengthText.textContent = 'Very Strong';
+            }
+        }
+        
+        // Copy to clipboard
+        copyBtn.addEventListener('click', () => {
+            if (passwordInput.value && passwordInput.value !== 'Select at least one option') {
+                navigator.clipboard.writeText(passwordInput.value).then(() => {
+                    copyBtn.textContent = '✓';
+                    copyBtn.classList.add('copied');
+                    setTimeout(() => {
+                        copyBtn.textContent = '📋';
+                        copyBtn.classList.remove('copied');
+                    }, 2000);
+                });
+            }
+        });
+        
+        // Generate button click
+        generateBtn.addEventListener('click', generatePassword);
+        
+        // Generate initial password
+        generatePassword();
+    });
+})();

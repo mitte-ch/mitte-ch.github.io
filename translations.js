@@ -13,6 +13,7 @@ const translations = {
             tech: "TECH",
             blog: "BLOG",
             about: "ABOUT",
+            tools: "TOOLS",
             contact: "CONTACT"
         },
         // Hero Section
@@ -127,6 +128,27 @@ const translations = {
             sendButton: "SEND MESSAGE",
             successMessage: "Thank you for your message! We will get back to you soon."
         },
+        // Tools Section
+        tools: {
+            title: "Free Tools",
+            subtitle: "Useful utilities for developers and IT professionals",
+            passwordGenerator: {
+                title: "Password Generator",
+                description: "Generate strong, secure passwords with customizable options",
+                length: "Length:",
+                uppercase: "Uppercase (A-Z)",
+                lowercase: "Lowercase (a-z)",
+                numbers: "Numbers (0-9)",
+                symbols: "Symbols (!@#$%)",
+                strength: "Strength:",
+                weak: "Weak",
+                medium: "Medium",
+                strong: "Strong",
+                veryStrong: "Very Strong",
+                generate: "Generate Password",
+                copied: "Copied!"
+            }
+        },
         // Footer
         footer: {
             text1: "Mitte-ch",
@@ -199,6 +221,7 @@ const translations = {
             tech: "TECNOLOGÍAS",
             blog: "BLOG",
             about: "NOSOTROS",
+            tools: "HERRAMIENTAS",
             contact: "CONTACTO"
         },
         // Sección Hero
@@ -312,6 +335,27 @@ const translations = {
             messagePlaceholder: "Tu Mensaje",
             sendButton: "ENVIAR MENSAJE",
             successMessage: "¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto."
+        },
+        // Sección Herramientas
+        tools: {
+            title: "Herramientas Gratuitas",
+            subtitle: "Utilidades prácticas para desarrolladores y profesionales de TI",
+            passwordGenerator: {
+                title: "Generador de Contraseñas",
+                description: "Genera contraseñas fuertes y seguras con opciones personalizables",
+                length: "Longitud:",
+                uppercase: "Mayúsculas (A-Z)",
+                lowercase: "Minúsculas (a-z)",
+                numbers: "Números (0-9)",
+                symbols: "Símbolos (!@#$%)",
+                strength: "Fortaleza:",
+                weak: "Débil",
+                medium: "Media",
+                strong: "Fuerte",
+                veryStrong: "Muy Fuerte",
+                generate: "Generar Contraseña",
+                copied: "¡Copiado!"
+            }
         },
         // Pie de página
         footer: {
