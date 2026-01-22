@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title - Mitte-ch Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <svg class="logo-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <path d="M 25 8 L 38 16 L 38 32 L 25 40 L 12 32 L 12 16 Z" 
+                                  fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                            <circle cx="25" cy="25" r="4" fill="currentColor"/>
+                            <circle cx="25" cy="8" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="25" cy="40" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="16" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">Mitte-ch</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home" data-i18n="nav.home">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#services" data-i18n="nav.services">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#migration" data-i18n="nav.migration">Migration</a></li>
+                            <li><a href="index.html#infrastructure" data-i18n="nav.infrastructure">Infrastructure Build</a></li>
+                            <li><a href="index.html#devops" data-i18n="nav.devops">DevOps</a></li>
+                            <li><a href="index.html#outsourcing" data-i18n="nav.outsourcing">Outsourcing</a></li>
+                            <li><a href="index.html#audit" data-i18n="nav.audit">Audit & Advice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#tech" data-i18n="nav.tech">TECH</a></li>
+                    <li><a href="index.html#about" data-i18n="nav.about">ABOUT</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav.contact">CONTACT</a></li>
+                    <li><a href="blog.html" data-i18n="nav.blog">BLOG</a></li>
+                    <li class="language-switcher">
+                        <button id="languageBtn" class="lang-btn">
+                            <span class="lang-icon">🌐</span>
+                            <span id="currentLang">EN</span>
+                        </button>
+                        <ul class="language-menu" id="languageMenu">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-category">Cloud Architecture</span>
+            <h1 class="article-title">Your Article Title Goes Here</h1>
+            <div class="article-meta">
+                <span>📅 <span data-i18n="blog.publishedOn">Published on</span> January 21, 2026</span>
+                <span>👤 <span data-i18n="blog.authorBy">By</span> Mitte-ch Team</span>
+                <span>⏱ 8 <span data-i18n="blog.readTime">min read</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="blog-section">
+        <div class="container">
+            <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
+            
+            <div class="article-content">
+                <!-- 
+                    ===================================================
+                    ARTICLE TEMPLATE INSTRUCTIONS
+                    ===================================================
+                    
+                    This is your template for writing blog articles.
+                    
+                    HOW TO USE:
+                    1. Copy this file and rename it (e.g., "my-article-slug.html")
+                    2. Update the <title> tag in the <head>
+                    3. Update the article-category, article-title, and article-meta
+                    4. Replace this instruction block with your article content
+                    5. Update the tags at the bottom
+                    
+                    STYLING GUIDE:
+                    - Use <h2> for main sections
+                    - Use <h3> for subsections
+                    - Use <p> for paragraphs
+                    - Use <ul> or <ol> for lists
+                    - Use <blockquote> for quotes
+                    - Use <pre><code> for code blocks
+                    - Use <img> tags for images
+                    
+                    ===================================================
+                -->
+
+                <h2>Introduction</h2>
+                <p>
+                    Start your article with a compelling introduction that explains what readers will learn 
+                    and why it matters. This should hook your audience and set the stage for the content to come.
+                </p>
+                
+                <p>
+                    You can include multiple paragraphs to build context and establish the problem or topic 
+                    you'll be addressing throughout the article.
+                </p>
+
+                <h2>Main Section Title</h2>
+                <p>
+                    Break your article into logical sections. Each section should cover a distinct aspect 
+                    of your topic. Use clear, descriptive headings that help readers navigate your content.
+                </p>
+
+                <h3>Subsection Example</h3>
+                <p>
+                    Use H3 headings for subsections within your main topics. This creates a clear hierarchy 
+                    and makes your content more scannable.
+                </p>
+
+                <h2>Using Lists</h2>
+                <p>Lists are great for presenting multiple points clearly:</p>
+                
+                <ul>
+                    <li>Use unordered lists (ul) for non-sequential items</li>
+                    <li>Lists help break up text and improve readability</li>
+                    <li>Each point should be concise and focused</li>
+                    <li>You can have as many list items as needed</li>
+                </ul>
+
+                <p>Or use ordered lists when sequence matters:</p>
+                
+                <ol>
+                    <li>First, understand the problem</li>
+                    <li>Then, design your solution</li>
+                    <li>Implement with best practices</li>
+                    <li>Test thoroughly</li>
+                    <li>Deploy and monitor</li>
+                </ol>
+
+                <h2>Code Examples</h2>
+                <p>
+                    When sharing code, use the <code>&lt;pre&gt;&lt;code&gt;</code> tags. 
+                    Here's an inline code example: <code>kubectl get pods</code>.
+                </p>
+
+                <p>For multi-line code blocks:</p>
+
+                <pre><code>// Example Terraform configuration
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = "t3.micro"
+  
+  tags = {
+    Name = "WebServer"
+    Environment = "Production"
+  }
+}</code></pre>
+
+                <h2>Highlighting Important Information</h2>
+                <p>Use blockquotes to emphasize key takeaways or quotes:</p>
+
+                <blockquote>
+                    "The best infrastructure is the one that adapts to your needs, 
+                    not the other way around. Design for flexibility and scalability from day one."
+                </blockquote>
+
+                <h2>Adding Images</h2>
+                <p>
+                    You can add images to illustrate concepts. Place your images in an "images" folder 
+                    and reference them like this:
+                </p>
+
+                <!-- Example image tag (commented out) -->
+                <!-- <img src="images/your-diagram.png" alt="Architecture diagram showing multi-cloud setup"> -->
+
+                <h2>Best Practices Section</h2>
+                <p>Share actionable advice with your readers:</p>
+                
+                <ul>
+                    <li><strong>Keep it practical:</strong> Focus on real-world applications</li>
+                    <li><strong>Explain the why:</strong> Don't just tell readers what to do, explain why it matters</li>
+                    <li><strong>Use examples:</strong> Concrete examples make abstract concepts clear</li>
+                    <li><strong>Link to resources:</strong> Help readers dive deeper into topics</li>
+                </ul>
+
+                <h2>Conclusion</h2>
+                <p>
+                    Wrap up your article by summarizing the key points and providing actionable next steps. 
+                    What should readers do with this information? How can they apply it to their own work?
+                </p>
+
+                <p>
+                    End with a call to action or invitation to engage further—whether that's trying 
+                    out a technique, reaching out for consultation, or exploring related topics.
+                </p>
+
+                <!-- Article Tags -->
+                <div class="article-tags">
+                    <span class="tag">Cloud Architecture</span>
+                    <span class="tag">DevOps</span>
+                    <span class="tag">Best Practices</span>
+                    <span class="tag">Kubernetes</span>
+                </div>
+
+                <!-- Share Section -->
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">
+                            🐦 Twitter
+                        </a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">
+                            💼 LinkedIn
+                        </a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">
+                            🔗 Copy Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer.text1">Mitte-ch</p>
+            <p data-i18n="footer.text2">All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Social sharing functions
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.querySelector('.article-title').textContent);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=420');
+        }
+
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy link:', err);
+            });
+        }
+    </script>
+</body>
+</html>

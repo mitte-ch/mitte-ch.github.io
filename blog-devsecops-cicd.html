@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating DevSecOps: Building Security Into Your CI/CD Pipeline - Mitte-ch Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <svg class="logo-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            <path d="M 25 8 L 38 16 L 38 32 L 25 40 L 12 32 L 12 16 Z"
+                                  fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                            <circle cx="25" cy="25" r="4" fill="currentColor"/>
+                            <circle cx="25" cy="8" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="25" cy="40" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="16" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">Mitte-ch</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home" data-i18n="nav.home">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#services" data-i18n="nav.services">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#migration" data-i18n="nav.migration">Migration</a></li>
+                            <li><a href="index.html#infrastructure" data-i18n="nav.infrastructure">Infrastructure Build</a></li>
+                            <li><a href="index.html#devops" data-i18n="nav.devops">DevOps</a></li>
+                            <li><a href="index.html#outsourcing" data-i18n="nav.outsourcing">Outsourcing</a></li>
+                            <li><a href="index.html#audit" data-i18n="nav.audit">Audit & Advice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#tech" data-i18n="nav.tech">TECH</a></li>
+                    <li><a href="index.html#about" data-i18n="nav.about">ABOUT</a></li>
+                    <li><a href="index.html#contact" data-i18n="nav.contact">CONTACT</a></li>
+                    <li><a href="blog.html" data-i18n="nav.blog">BLOG</a></li>
+                    <li class="language-switcher">
+                        <button id="languageBtn" class="lang-btn">
+                            <span class="lang-icon">🌐</span>
+                            <span id="currentLang">EN</span>
+                        </button>
+                        <ul class="language-menu" id="languageMenu">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Hero -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <span class="article-category">DevOps</span>
+            <h1 class="article-title">Integrating DevSecOps: Building Security Into Your CI/CD Pipeline</h1>
+            <div class="article-meta">
+                <span>📅 <span data-i18n="blog.publishedOn">Published on</span> January 10, 2026</span>
+                <span>👤 <span data-i18n="blog.authorBy">By</span> Mitte-ch Team</span>
+                <span>⏱ 7 <span data-i18n="blog.readTime">min read</span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Content -->
+    <section class="blog-section">
+        <div class="container">
+            <a href="blog.html" class="back-to-blog" data-i18n="blog.backToBlog">← Back to Blog</a>
+
+            <div class="article-content">
+                <h2>DevSecOps in one sentence</h2>
+                <p>
+                    DevSecOps is the practice of integrating security into delivery workflows so teams ship faster
+                    <em>without</em> increasing risk—by using automation, clear policies, and secure defaults.
+                </p>
+
+                <h2>Why “shift-left” is not enough</h2>
+                <p>
+                    “Shift-left” (run scanners early) helps, but DevSecOps goes further: it makes security a
+                    <strong>continuous system</strong>—from source code to infrastructure to runtime.
+                </p>
+
+                <h2>The CI/CD controls that matter most</h2>
+                <h3>1) Protect the pipeline itself</h3>
+                <ul>
+                    <li>Strong identity (SSO/MFA) and role-based permissions for CI runners and deploy keys.</li>
+                    <li>Separate build from deploy permissions (least privilege).</li>
+                    <li>Review and rotate tokens/secrets frequently.</li>
+                </ul>
+
+                <h3>2) Automate code and dependency checks</h3>
+                <ul>
+                    <li><strong>SAST</strong>: catch risky patterns in application code.</li>
+                    <li><strong>SCA</strong>: detect vulnerable open-source dependencies and license risks.</li>
+                    <li><strong>Secrets scanning</strong>: prevent committing keys, tokens, credentials.</li>
+                </ul>
+
+                <h3>3) Scan infrastructure as code</h3>
+                <p>
+                    Misconfigured cloud resources remain a top cause of incidents. Add IaC scanning for Terraform,
+                    CloudFormation, Kubernetes manifests, and container configs.
+                </p>
+
+                <h3>4) Container and artifact hygiene</h3>
+                <ul>
+                    <li>Pin base image versions and update regularly.</li>
+                    <li>Scan images for CVEs and enforce a “no critical vulnerabilities” gate.</li>
+                    <li>Sign artifacts (and verify signatures in the deploy step).</li>
+                </ul>
+
+                <h3>5) Runtime controls and observability</h3>
+                <p>
+                    CI/CD is only half the story. Add runtime monitoring (logs/metrics/traces) plus cloud security
+                    posture management to detect drift and anomalous behavior.
+                </p>
+
+                <h2>A minimal pipeline example (conceptual)</h2>
+                <pre><code># Pseudo CI steps (tool-agnostic)
+stages:
+  - lint
+  - test
+  - security
+  - build
+  - deploy
+
+security:
+  steps:
+    - run: sast_scan
+    - run: dependency_scan
+    - run: secrets_scan
+    - run: iac_scan
+    - run: container_scan
+  rules:
+    - fail_on: critical_vulns
+    - fail_on: exposed_secrets</code></pre>
+
+                <h2>Common failure modes (and how to avoid them)</h2>
+                <ul>
+                    <li><strong>Too many false positives</strong>: tune rules and start with high-signal checks.</li>
+                    <li><strong>Security gates that block delivery</strong>: use gradual enforcement (warn → fail) and prioritize critical risks.</li>
+                    <li><strong>Security as a separate team</strong>: embed security ownership into engineering teams with clear playbooks.</li>
+                    <li><strong>No feedback loop</strong>: track remediation time, recurrence, and attack surface reduction over time.</li>
+                </ul>
+
+                <blockquote>
+                    The best DevSecOps program isn’t the one with the most tools—it’s the one that produces
+                    predictable, secure releases with minimal friction.
+                </blockquote>
+
+                <h2>References & further reading</h2>
+                <ul>
+                    <li><a href="https://blazeclan.com/blog/7-critical-cloud-security-trends-reshaping-enterprise-protection-in-2025/" target="_blank" rel="noopener noreferrer">Blazeclan: cloud security trends (context for DevSecOps)</a></li>
+                    <li><a href="https://www.clouddefense.ai/cloud-security-best-practices/" target="_blank" rel="noopener noreferrer">CloudDefense: cloud security best practices</a></li>
+                </ul>
+
+                <div class="article-tags">
+                    <span class="tag">DevSecOps</span>
+                    <span class="tag">CI/CD</span>
+                    <span class="tag">Security</span>
+                    <span class="tag">Automation</span>
+                </div>
+
+                <div class="article-share">
+                    <h3 data-i18n="blog.shareArticle">Share Article</h3>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn" onclick="shareOnTwitter(); return false;">🐦 Twitter</a>
+                        <a href="#" class="share-btn" onclick="shareOnLinkedIn(); return false;">💼 LinkedIn</a>
+                        <a href="#" class="share-btn" onclick="copyLink(); return false;">🔗 Copy Link</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer.text1">Mitte-ch</p>
+            <p data-i18n="footer.text2">All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+    <script>
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.querySelector('.article-title').textContent);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=550,height=420');
+        }
+        function shareOnLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+        }
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+</html>
+
