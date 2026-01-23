@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Consulting - Free Tools</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <a href="index.html#home">
+                        <svg class="logo-icon" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer circle representing connectivity -->
+                            <circle cx="25" cy="25" r="23" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                            
+                            <!-- Inner geometric shape - hexagon representing tech/structure -->
+                            <path d="M 25 8 L 38 16 L 38 32 L 25 40 L 12 32 L 12 16 Z" 
+                                  fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                            
+                            <!-- Center dot - "mitte" (middle/center) -->
+                            <circle cx="25" cy="25" r="4" fill="currentColor"/>
+                            
+                            <!-- Connection nodes at corners -->
+                            <circle cx="25" cy="8" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="38" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="25" cy="40" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="32" r="2.5" fill="currentColor"/>
+                            <circle cx="12" cy="16" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span class="logo-text">Mitte-ch</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home" data-i18n="nav.home">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="index.html#services" data-i18n="nav.services">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#migration" data-i18n="nav.migration">Migration</a></li>
+                            <li><a href="index.html#infrastructure" data-i18n="nav.infrastructure">Infrastructure Build</a></li>
+                            <li><a href="index.html#devops" data-i18n="nav.devops">DevOps</a></li>
+                            <li><a href="index.html#outsourcing" data-i18n="nav.outsourcing">Outsourcing</a></li>
+                            <li><a href="index.html#audit" data-i18n="nav.audit">Audit & Advice</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="index.html#tech" data-i18n="nav.tech">TECH</a></li>
+                    <li><a href="index.html#about" data-i18n="nav.about">ABOUT</a></li>
+                    <li><a href="tools.html" data-i18n="nav.tools">TOOLS</a></li>                    
+                    <li><a href="index.html#contact" data-i18n="nav.contact">CONTACT</a></li>
+                    <li><a href="blogs/blog.html" data-i18n="nav.blog">BLOG</a></li><!-- Added by me for tools page-->
+                    <li class="theme-switcher">
+                        <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode">
+                            <span class="theme-icon">🌙</span>
+                        </button>
+                    </li>
+                    <li class="language-switcher">
+                        <button id="languageBtn" class="lang-btn">
+                            <span class="lang-icon">🌐</span>
+                            <span id="currentLang">EN</span>
+                        </button>
+                        <ul class="language-menu" id="languageMenu">
+                            <li><a href="#" data-lang="en">English</a></li>
+                            <li><a href="#" data-lang="es">Español</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <div class="container">
+            <div class="section-header-center">
+                <h2 data-i18n="tools.title">Free Tools</h2>
+                <p data-i18n="tools.subtitle">Useful utilities for developers and IT professionals</p>
+            </div>
+            
+            <div class="tools-grid">
+                <!-- Password Generator -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <span class="tool-icon">🔐</span>
+                        <h3 data-i18n="tools.passwordGenerator.title">Password Generator</h3>
+                    </div>
+                    <p class="tool-description" data-i18n="tools.passwordGenerator.description">Generate strong, secure passwords with customizable options</p>
+                    
+                    <div class="password-generator">
+                        <div class="password-display">
+                            <input type="text" id="generatedPassword" readonly placeholder="Click Generate">
+                            <button class="copy-btn" id="copyPassword" title="Copy to clipboard">📋</button>
+                        </div>
+                        
+                        <div class="password-options">
+                            <div class="option-row">
+                                <label for="passwordLength" data-i18n="tools.passwordGenerator.length">Length:</label>
+                                <input type="range" id="passwordLength" min="8" max="64" value="16">
+                                <span id="lengthValue">16</span>
+                            </div>
+                            
+                            <div class="option-checkboxes">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeUppercase" checked>
+                                    <span data-i18n="tools.passwordGenerator.uppercase">Uppercase (A-Z)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeLowercase" checked>
+                                    <span data-i18n="tools.passwordGenerator.lowercase">Lowercase (a-z)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeNumbers" checked>
+                                    <span data-i18n="tools.passwordGenerator.numbers">Numbers (0-9)</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="includeSymbols" checked>
+                                    <span data-i18n="tools.passwordGenerator.symbols">Symbols (!@#$%)</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="password-strength">
+                            <span data-i18n="tools.passwordGenerator.strength">Strength:</span>
+                            <div class="strength-bar">
+                                <div class="strength-fill" id="strengthFill"></div>
+                            </div>
+                            <span id="strengthText" data-i18n="tools.passwordGenerator.medium">Medium</span>
+                        </div>
+                        
+                        <button class="generate-btn" id="generatePassword" data-i18n="tools.passwordGenerator.generate">Generate Password</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p data-i18n="footer.text1">Mitte-ch</p>
+            <p data-i18n="footer.text2">All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="emailjs-config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
