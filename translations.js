@@ -150,6 +150,35 @@ const translations = {
                 veryStrong: "Very Strong",
                 generate: "Generate Password",
                 copied: "Copied!"
+            },
+            ipCalculator: {
+                title: "IP Subnet Calculator",
+                description: "Calculate subnet information from IP address and netmask",
+                ipAddress: "IP Address:",
+                netmask: "Netmask:",
+                calculate: "Calculate",
+                address: "Address:",
+                netmaskLabel: "Netmask:",
+                wildcard: "Wildcard:",
+                network: "Network:",
+                broadcast: "Broadcast:",
+                hostMin: "HostMin:",
+                hostMax: "HostMax:",
+                hostsNet: "Hosts/Net:",
+                class: "Class:"
+            },
+            base64: {
+                title: "Base64 Encoder/Decoder",
+                description: "Encode or decode text using Base64 encoding",
+                encode: "Encode",
+                decode: "Decode",
+                inputText: "Input Text:",
+                outputBase64: "Base64 Output:",
+                inputBase64: "Base64 Input:",
+                outputText: "Decoded Text:",
+                encodeBtn: "Encode to Base64",
+                decodeBtn: "Decode from Base64",
+                clear: "Clear"
             }
         },
         // Footer
@@ -361,6 +390,35 @@ const translations = {
                 veryStrong: "Muy Fuerte",
                 generate: "Generar Contraseña",
                 copied: "¡Copiado!"
+            },
+            ipCalculator: {
+                title: "Calculadora de Subredes IP",
+                description: "Calcula información de subred desde dirección IP y máscara de red",
+                ipAddress: "Dirección IP:",
+                netmask: "Máscara de Red:",
+                calculate: "Calcular",
+                address: "Dirección:",
+                netmaskLabel: "Máscara de Red:",
+                wildcard: "Wildcard:",
+                network: "Red:",
+                broadcast: "Broadcast:",
+                hostMin: "Host Mínimo:",
+                hostMax: "Host Máximo:",
+                hostsNet: "Hosts/Red:",
+                class: "Clase:"
+            },
+            base64: {
+                title: "Codificador/Decodificador Base64",
+                description: "Codifica o decodifica texto usando codificación Base64",
+                encode: "Codificar",
+                decode: "Decodificar",
+                inputText: "Texto de Entrada:",
+                outputBase64: "Salida Base64:",
+                inputBase64: "Entrada Base64:",
+                outputText: "Texto Decodificado:",
+                encodeBtn: "Codificar a Base64",
+                decodeBtn: "Decodificar desde Base64",
+                clear: "Limpiar"
             }
         },
         // Pie de página
@@ -427,7 +485,7 @@ const translations = {
 // Function to change language
 function changeLanguage(lang) {
     const t = translations[lang];
-    
+
     // Update all elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const keys = element.getAttribute('data-i18n').split('.');
@@ -443,24 +501,24 @@ function changeLanguage(lang) {
         const contentLang = element.getAttribute('data-lang-content');
         element.style.display = contentLang === lang ? '' : 'none';
     });
-    
+
     // Update placeholders
     const namePlaceholder = document.getElementById('name');
     const emailPlaceholder = document.getElementById('email');
     const subjectPlaceholder = document.getElementById('subject');
     const messagePlaceholder = document.getElementById('message');
-    
+
     if (namePlaceholder) namePlaceholder.placeholder = t.contact.namePlaceholder;
     if (emailPlaceholder) emailPlaceholder.placeholder = t.contact.emailPlaceholder;
     if (subjectPlaceholder) subjectPlaceholder.placeholder = t.contact.subjectPlaceholder;
     if (messagePlaceholder) messagePlaceholder.placeholder = t.contact.messagePlaceholder;
-    
+
     // Update current language display
     document.getElementById('currentLang').textContent = lang.toUpperCase();
-    
+
     // Save language preference
     localStorage.setItem('preferredLanguage', lang);
-    
+
     // Update form success message
     window.currentLang = lang;
 }
